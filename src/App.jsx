@@ -1,5 +1,7 @@
+import Design from "./components/Design";
+
 const App = () => {
-  return <div>App</div>;
+  return <Design />;
 };
 
 export default App;
