@@ -69,6 +69,17 @@ body {
   min-height: 100vh;
 }
 
+#root {
+  border: 1px dashed pink;
+}
+
+.content {
+  outline: 2px solid blue;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  min-height: 100vh;
+}
+
 /* make images easier to work with */
 img,
 picture {
@@ -118,6 +129,31 @@ select {
   padding: 10px 2em;
   max-width: 80rem;
   margin-inline: auto;
+}
+
+.grid-container {
+  border: 5px solid limegreen;
+  display: grid;
+}
+
+@media (min-width: 45rem) {
+  .grid-container {
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        2rem,
+        1fr
+      );
+  }
+
+  .grid-container > *:first-child {
+    grid-column: 2;
+    outline: 1px solid red;
+  }
+
+  .grid-container > *:last-child {
+    grid-column: 3;
+    outline: 1px solid yellow;
+  }
 }
 
 .sr-only {
@@ -231,7 +267,7 @@ select {
 .large-button {
   position: relative;
   z-index: 1;
-  display: grid;
+  display: inline-grid;
   place-items: center;
   aspect-ratio: 1;
   padding: 0 2em;

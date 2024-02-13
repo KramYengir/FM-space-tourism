@@ -12,7 +12,7 @@ import Destination from "./pages/Destination/Destination";
 
 const Layout = () => {
   return (
-    <div>
+    <div className="content">
       <Header />
       <Outlet />
     </div>

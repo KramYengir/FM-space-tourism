@@ -1,34 +1,43 @@
 import { Link } from "react-router-dom";
+import logoIMG from "../../assets/shared/logo.svg";
 import "./Header.css";
 
 const Header = () => {
   return (
-    <header className="primary-header">
-      <div>Logo</div>
+    <header className="primary-header flex">
+      <div>
+        <img src={logoIMG} alt="Website logo" />
+      </div>
       <nav>
         <ul className="primary-navigation underline-indicators flex">
           <li>
-            <Link to="/" className="text-white uppercase letter-spacing-2">
+            <Link
+              to="/"
+              className="ff-sans-cond text-white uppercase letter-spacing-2"
+            >
               <span>00</span> Home
             </Link>
           </li>
           <li>
             <Link
               to="/destination"
-              className="text-white uppercase letter-spacing-2"
+              className="ff-sans-cond text-white uppercase letter-spacing-2"
             >
               <span>01</span> Destination
             </Link>
           </li>
           <li>
-            <Link to="/crew" className="text-white uppercase letter-spacing-2">
+            <Link
+              to="/crew"
+              className="ff-sans-cond text-white uppercase letter-spacing-2"
+            >
               <span>02</span> Crew
             </Link>
           </li>
           <li>
             <Link
               to="/technology"
-              className="text-white uppercase letter-spacing-2"
+              className="ff-sans-cond text-white uppercase letter-spacing-2"
             >
               <span>03</span> Technology
             </Link>
