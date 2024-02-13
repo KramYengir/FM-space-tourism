@@ -3,7 +3,9 @@ import {
   Route,
   Routes,
   Outlet,
+  useLocation,
 } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Crew from "./pages/Crew/Crew";
@@ -11,11 +13,21 @@ import Technology from "./pages/Technology/Technology";
 import Destination from "./pages/Destination/Destination";
 
 const Layout = () => {
+  const location = useLocation();
+
+  // ADD CLASS OF CURRENT PATH TO BODY
+  // SO WE CAN CHANGE THE BACKGROUND IMAGE ACCORDINGLY
+  // DOING THIS SO BG GOES BEHIND HEADER ELEMENT
+  useEffect(() => {
+    // Set body class based on current route
+    document.body.className = location.pathname.substring(1);
+  }, [location]);
+
   return (
-    <div className="content">
+    <>
       <Header />
       <Outlet />
-    </div>
+    </>
   );
 };
 

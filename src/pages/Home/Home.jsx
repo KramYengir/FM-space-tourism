@@ -2,11 +2,11 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <div className="grid-container">
+    <div className="grid-container home">
       <div>
         <h1 className="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">
           So, you want to travel to
-          <span className="fs-900 ff-serif text-white"> Space</span>
+          <span className="fs-900 ff-serif text-white block"> Space</span>
         </h1>
         <p>
           Let’s face it; if you want to go to space, you might as well genuinely
@@ -18,7 +18,7 @@ const Home = () => {
       <div>
         <a
           href="#"
-          className="large-button uppercase fs-600 ff-serif text-dark bg-white"
+          className="large-button uppercase ff-serif text-dark bg-white"
         >
           Explore
         </a>

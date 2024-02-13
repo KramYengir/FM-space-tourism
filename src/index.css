@@ -1,19 +1,21 @@
 /* ------------------- */
 /* Custom Properties   */
 /* ------------------- */
+
+/** MOBILE FIRST **/
 :root {
   /* colors */
-  --clr-dark: 230, 35%, 7%;
-  --clr-light: 231, 77%, 90%;
-  --clr-white: 0, 0%, 100%;
+  --clr-dark: 230 35% 7%;
+  --clr-light: 231 77% 90%;
+  --clr-white: 0 0% 100%;
 
-  /* fonts */
-  --fs-900: 9.375rem;
-  --fs-800: 6.25rem;
-  --fs-700: 3.5rem;
-  --fs-600: 2rem;
+  /* font-sizes */
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-600: 1rem;
   --fs-500: 1.75rem;
-  --fs-400: 1.125rem;
+  --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
 
@@ -21,6 +23,30 @@
   --ff-serif: "Bellefair", serif;
   --ff-sans-cond: "Barlow Condensed", sans-serif;
   --ff-sans-normal: "Barlow", sans-serif;
+}
+
+/** TABLETS **/
+@media (min-width: 35em) {
+  :root {
+    --fs-800: 5rem;
+    --fs-700: 2.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 1rem;
+  }
+}
+
+/** DESKTOPS **/
+@media (min-width: 45em) {
+  :root {
+    /* font-sizes */
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+  }
 }
 
 /* ------------------- */
@@ -67,17 +93,61 @@ body {
   background-color: hsl(var(--clr-dark));
   line-height: 1.5;
   min-height: 100vh;
+
+  display: flex;
+  background-image: url("./assets/home/background-home-mobile.jpg");
+
+  background-size: cover;
+  background-position: bottom center;
+}
+
+/** change the background depending on which page we're on **/
+body.crew {
+  background-image: url("./assets/crew/background-crew-mobile.jpg");
+}
+body.destination {
+  background-image: url("./assets/destination/background-destination-mobile.jpg");
+}
+body.technology {
+  background-image: url("./assets/technology/background-technology-mobile.jpg");
+}
+/**  TABLETS  **/
+@media (min-width: 35rem) {
+  body {
+    background-image: url("./assets/home/background-home-tablet.jpg");
+  }
+  body.crew {
+    background-image: url("./assets/crew/background-crew-tablet.jpg");
+  }
+  body.destination {
+    background-image: url("./assets/destination/background-destination-tablet.jpg");
+  }
+  body.technology {
+    background-image: url("./assets/technology/background-technology-tablet.jpg");
+  }
+}
+
+/**  DESKTOPS  **/
+@media (min-width: 45rem) {
+  body {
+    background-image: url("./assets/home/background-home-desktop.jpg");
+  }
+  body.crew {
+    background-image: url("./assets/crew/background-crew-desktop.jpg");
+  }
+  body.destination {
+    background-image: url("./assets/destination/background-destination-desktop.jpg");
+  }
+  body.technology {
+    background-image: url("./assets/technology/background-technology-desktop.jpg");
+  }
 }
 
 #root {
-  border: 1px dashed pink;
-}
-
-.content {
-  outline: 2px solid blue;
+  flex: 1;
   display: grid;
   grid-template-rows: min-content 1fr;
-  min-height: 100vh;
+  border: 1px dashed pink;
 }
 
 /* make images easier to work with */
@@ -121,6 +191,10 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.block {
+  display: block;
+}
+
 .flow > *:where(:not(:first-child)) {
   margin-top: var(--flow-space, 1rem);
 }
@@ -132,17 +206,34 @@ select {
 }
 
 .grid-container {
-  border: 5px solid limegreen;
   display: grid;
+  place-items: center;
+  padding-inline: 1em;
+
+  border: 5px solid limegreen;
+
+  text-align: center;
 }
 
-@media (min-width: 45rem) {
+.grid-container * {
+  max-width: 50ch;
+}
+
+/**  DESKTOPS  **/
+@media (min-width: 45em) {
   .grid-container {
     column-gap: var(--container-gap, 2rem);
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
         2rem,
         1fr
       );
+    text-align: left;
+  }
+
+  /** HOMEPAGE **/
+  .home.grid-container {
+    align-items: end;
+    padding-bottom: max(6rem, 20vh);
   }
 
   .grid-container > *:first-child {
@@ -273,6 +364,7 @@ select {
   padding: 0 2em;
   border-radius: 50%;
 
+  font-size: 2rem;
   text-decoration: none;
 }
 

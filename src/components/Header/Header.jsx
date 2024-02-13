@@ -8,7 +8,7 @@ const Header = () => {
       <div>
         <img src={logoIMG} alt="Website logo" />
       </div>
-      <nav>
+      {/* <nav>
         <ul className="primary-navigation underline-indicators flex">
           <li>
             <Link
@@ -43,7 +43,7 @@ const Header = () => {
             </Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
     </header>
   );
 };
