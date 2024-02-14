@@ -249,6 +249,8 @@ select {
   }
 }
 
+/** ACCESSABILITY  **/
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -259,6 +261,24 @@ select {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+  opacity: 100;
 }
 
 /* colors */

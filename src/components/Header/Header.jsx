@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import logoIMG from "../../assets/shared/logo.svg";
 import hamburgerIMG from "../../assets/shared/icon-hamburger.svg";
@@ -54,7 +54,7 @@ const Header = () => {
                 toggleAriaSelected(event);
               }}
             >
-              <span>00</span> Home
+              <span aria-hidden={true}>00</span> Home
             </Link>
           </li>
           <li>
@@ -67,7 +67,7 @@ const Header = () => {
                 toggleAriaSelected(event);
               }}
             >
-              <span>01</span> Destination
+              <span aria-hidden={true}>01</span> Destination
             </Link>
           </li>
           <li>
@@ -80,7 +80,7 @@ const Header = () => {
                 toggleAriaSelected(event);
               }}
             >
-              <span>02</span> Crew
+              <span aria-hidden={true}>02</span> Crew
             </Link>
           </li>
           <li>
@@ -93,7 +93,7 @@ const Header = () => {
                 toggleAriaSelected(event);
               }}
             >
-              <span>03</span> Technology
+              <span aria-hidden={true}>03</span> Technology
             </Link>
           </li>
         </ul>

@@ -2,7 +2,7 @@ import "./Home.css";
 
 const Home = () => {
   return (
-    <div className="grid-container home">
+    <main id="main" className="grid-container home">
       <div>
         <h1 className="text-accent fs-500 ff-sans-cond uppercase letter-spacing-1">
           So, you want to travel to
@@ -23,7 +23,7 @@ const Home = () => {
           Explore
         </a>
       </div>
-    </div>
+    </main>
   );
 };
 
