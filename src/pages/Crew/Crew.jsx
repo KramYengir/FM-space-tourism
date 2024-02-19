@@ -55,7 +55,7 @@ const Crew = () => {
       onTouchEnd={handleTouchEnd}
     >
       <h1 className="numbered-title">
-        <span aria-hidden={true}>02</span> meet the crew
+        <span aria-hidden={true}>02</span> meet your crew
       </h1>
       <img src={currentSelection.images.png} alt={currentSelection.name} />
       <div className="dot-indicators flex" style={{ "--gap": "2rem" }}>

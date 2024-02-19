@@ -581,7 +581,7 @@ select {
 }
 
 .grid-container * {
-  max-width: 50ch;
+  max-width: 60ch;
 }
 
 .grid-container.home h1 {
@@ -639,6 +639,10 @@ select {
 
   --flow-space: 2rem;
   align-items: start;
+}
+
+.grid-container.crew .numbered-title {
+  grid-area: title;
 }
 
 .grid-container.crew img {
@@ -743,5 +747,34 @@ select {
   .destination-meta {
     --gap: max(4rem, 5vw);
     justify-content: flex-start;
+  }
+
+  /** CREW **/
+  .grid-container.crew {
+    grid-template-columns: minmax(2rem, 0.5fr) repeat(2, minmax(0, 35rem)) minmax(
+        2rem,
+        0.5fr
+      );
+    grid-template-areas:
+      ". title image ."
+      ". crew-info image ."
+      ". dots image .";
+
+    --flow-space: 2rem;
+    justify-content: start;
+    align-content: start;
+    --container-gap: min(6rem, 5vw);
+  }
+
+  .grid-container.crew .crew-info {
+    margin-right: auto;
+  }
+
+  .grid-container.crew img {
+    max-width: 100%;
+  }
+
+  .grid-container.crew .dot-indicators {
+    justify-self: left;
   }
 }
