@@ -660,12 +660,13 @@ select {
 }
 
 .grid-container.crew p:last-child {
-  margin-block: 2rem;
+  padding-block: 1.5rem;
 }
 
 /** BIGGER THAN MOBILE **/
 @media (min-width: 40rem) {
-  .grid-container.destination > .numbered-title {
+  .grid-container.destination > .numbered-title,
+  .grid-container.crew .numbered-title {
     justify-self: start;
     margin-top: calc(2rem + 1vw);
   }
@@ -674,8 +675,25 @@ select {
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  .grid-container.crew img {
+    border-bottom: 0;
+  }
 }
 
+/** TABLETS **/
+@media (min-width: 40rem) and (max-width: 59.999rem) {
+  .grid-container.crew {
+    grid-template-areas:
+      "title"
+      "crew-info"
+      "dots"
+      "image";
+
+    --flow-space: 2rem;
+    align-items: start;
+  }
+}
 /**  DESKTOPS  **/
 @media (min-width: 60rem) {
   .grid-container {
