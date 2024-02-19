@@ -604,7 +604,7 @@ select {
   max-width: 50%;
 }
 
-.grid-container.destination > .tab-list {
+.grid-container.destination > .tablist {
   grid-area: tabs;
 }
 
@@ -619,6 +619,10 @@ select {
   margin-top: 2.5rem;
 }
 
+.destination-meta p {
+  font-size: 1.75rem;
+}
+
 /** BIGGER THAN MOBILE **/
 @media (min-width: 40rem) {
   .grid-container.destination > .numbered-title {
@@ -628,14 +632,8 @@ select {
 
   .destination-meta {
     flex-direction: row;
-    /* gap: 4rem; */
     justify-content: space-evenly;
   }
-}
-
-/** TABLETS  **/
-@media (min-width: 40rem) {
-  /* comment */
 }
 
 /**  DESKTOPS  **/
@@ -657,18 +655,27 @@ select {
 
   /** DESTINATION **/
   .destination.grid-container {
-    align-items: center;
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
-        2rem,
-        1fr
-      );
+    grid-template-areas:
+      ". title title . "
+      ". image tabs ."
+      ". image content .";
+
+    justify-content: start;
+    align-content: start;
+    --container-gap: 8rem;
   }
 
-  .grid-container > *:first-child {
-    grid-column: 2;
+  .grid-container.destination > img {
+    grid-area: image;
+    max-width: 90%;
   }
 
-  .grid-container > *:last-child {
-    grid-column: 3;
+  .grid-container.destination > .tablist {
+    justify-self: left;
+  }
+
+  .destination-meta {
+    --gap: 6rem;
+    justify-content: flex-start;
   }
 }

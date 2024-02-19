@@ -61,15 +61,11 @@ const Destination = () => {
         <div className="destination-meta flex">
           <div>
             <h3 className="uppercase fs-200 text-accent">Avg. Distance</h3>
-            <p className="uppercase fs-500 ff-serif">
-              {currentSelection.distance}
-            </p>
+            <p className="uppercase ff-serif">{currentSelection.distance}</p>
           </div>
           <div>
             <h3 className="uppercase fs-200 text-accent">est. travel time</h3>
-            <p className="uppercase fs-500 ff-serif">
-              {currentSelection.travel}
-            </p>
+            <p className="uppercase ff-serif">{currentSelection.travel}</p>
           </div>
         </div>
       </article>
