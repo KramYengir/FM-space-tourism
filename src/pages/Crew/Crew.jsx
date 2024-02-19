@@ -57,7 +57,13 @@ const Crew = () => {
       <h1 className="numbered-title">
         <span aria-hidden={true}>02</span> meet your crew
       </h1>
-      <img src={currentSelection.images.png} alt={currentSelection.name} />
+      <picture>
+        <source
+          srcSet={currentSelection.images.webp}
+          type="image/webp"
+        ></source>
+        <img src={currentSelection.images.png} alt={currentSelection.name} />
+      </picture>
       <div className="dot-indicators flex" style={{ "--gap": "2rem" }}>
         {data.map((entry, index) => (
           <button

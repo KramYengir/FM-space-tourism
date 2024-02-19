@@ -608,7 +608,7 @@ select {
   grid-area: title;
 }
 
-.grid-container.destination > img {
+.grid-container.destination > picture {
   grid-area: image;
   max-width: 50%;
 }
@@ -649,7 +649,7 @@ select {
   grid-area: title;
 }
 
-.grid-container.crew img {
+.grid-container.crew picture {
   grid-area: image;
   max-width: 60%;
   border-bottom: 1px solid hsl(var(--clr-white) / 0.15);
@@ -684,7 +684,7 @@ select {
     padding-bottom: 0;
   }
 
-  .grid-container.crew img {
+  .grid-container.crew picture {
     border-bottom: 0;
     align-self: end;
   }
@@ -744,7 +744,7 @@ select {
     --container-gap: min(6rem, 5vw);
   }
 
-  .grid-container.destination > img {
+  .grid-container.destination > picture {
     grid-area: image;
     max-width: 90%;
   }
@@ -783,7 +783,7 @@ select {
     align-self: center;
   }
 
-  .grid-container.crew img {
+  .grid-container.crew picture {
     max-width: 90%;
   }
 

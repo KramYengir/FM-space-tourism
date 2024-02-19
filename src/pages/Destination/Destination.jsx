@@ -37,7 +37,10 @@ const Destination = () => {
         <span aria-hidden={true}>01</span> pick your destination
       </h1>
 
-      <img src={currentSelection.images.png} alt={currentSelection.name} />
+      <picture>
+        <source srcSet={currentSelection.images.webp} type="image/webp" />
+        <img src={currentSelection.images.png} alt={currentSelection.name} />
+      </picture>
 
       <ul className="tablist underline-indicators flex">
         {data.map((spaceBody, index) => (
