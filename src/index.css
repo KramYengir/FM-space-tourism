@@ -208,6 +208,10 @@ select {
   margin-top: var(--flow-space, 1rem);
 }
 
+.flow--space-small {
+  --flow-space: 0.5rem;
+}
+
 .container {
   padding: 10px 2em;
   max-width: 80rem;
@@ -663,10 +667,6 @@ select {
   color: hsl(var(--clr-white) / 0.5);
 }
 
-.grid-container.crew p:last-child {
-  padding-block: 1.5rem;
-}
-
 /** BIGGER THAN MOBILE **/
 @media (min-width: 40rem) {
   .grid-container.destination > .numbered-title,
@@ -780,7 +780,6 @@ select {
 
   .grid-container.crew .crew-info {
     margin-right: auto;
-    margin-block: auto;
     align-self: center;
   }
 

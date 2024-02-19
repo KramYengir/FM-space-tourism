@@ -52,7 +52,7 @@ const Destination = () => {
           </li>
         ))}
       </ul>
-      <article className="destination-info">
+      <article className="destination-info flow">
         <h2 className="uppercase fs-800 letter-spacing-2 ff-serif">
           {currentSelection.name}
         </h2>
