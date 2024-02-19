@@ -679,10 +679,6 @@ select {
     flex-direction: row;
     justify-content: space-evenly;
   }
-
-  .grid-container.crew img {
-    border-bottom: 0;
-  }
 }
 
 /** TABLETS **/
@@ -760,18 +756,27 @@ select {
       ". crew-info image ."
       ". dots image .";
 
-    --flow-space: 2rem;
     justify-content: start;
-    align-content: start;
+    align-content: stretch;
     --container-gap: min(6rem, 5vw);
+
+    padding-bottom: 0;
+  }
+
+  .grid-container.crew .numbered-title {
+    align-self: start;
   }
 
   .grid-container.crew .crew-info {
     margin-right: auto;
+    margin-block: auto;
+    align-self: center;
   }
 
   .grid-container.crew img {
-    max-width: 100%;
+    max-width: 90%;
+    border-bottom: 0;
+    align-self: end;
   }
 
   .grid-container.crew .dot-indicators {
