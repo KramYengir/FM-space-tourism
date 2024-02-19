@@ -4,6 +4,8 @@ import data from "./crewData";
 
 const Crew = () => {
   const [currentSelection, setCurrentSelection] = useState(data[0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   useEffect(() => {
     // Set aria-selected to true for the first dot-link when component mounts
@@ -14,25 +16,44 @@ const Crew = () => {
   }, []);
 
   const handleLinkClick = (event, index) => {
-    // Prevent default behavior of anchor tag
     event.preventDefault();
-
     // Set aria-selected to true for the clicked link
     const links = document.querySelectorAll(".dot-indicators button");
     links.forEach((dot, i) => {
-      if (i === index) {
-        dot.setAttribute("aria-selected", "true");
-      } else {
-        dot.setAttribute("aria-selected", "false");
-      }
+      dot.setAttribute("aria-selected", i === index ? "true" : "false");
     });
-
     // Update current selection
     setCurrentSelection(data[index]);
+    setCurrentIndex(index);
+  };
+
+  // swiping functionality
+
+  const handleTouchStart = (event) => {
+    setTouchStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (event) => {
+    const touchEndX = event.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+    if (deltaX > 0 && currentIndex > 0) {
+      // Swipe right
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+      setCurrentSelection(data[currentIndex - 1]);
+    } else if (deltaX < 0 && currentIndex < data.length - 1) {
+      // Swipe left
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setCurrentSelection(data[currentIndex + 1]);
+    }
   };
 
   return (
-    <main id="main" className="grid-container crew flow">
+    <main
+      id="main"
+      className="grid-container crew flow"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <h1 className="numbered-title">
         <span aria-hidden={true}>02</span> meet the crew
       </h1>
@@ -41,20 +62,16 @@ const Crew = () => {
         {data.map((entry, index) => (
           <button
             key={index}
-            aria-selected={false}
+            aria-selected={index === currentIndex}
             onClick={(e) => handleLinkClick(e, index)}
           >
-            <span className="sr-only">Slide title</span>
+            <span className="sr-only">The {entry.role}</span>
           </button>
         ))}
       </div>
       <article className="crew-info">
-        <h3 className="uppercase fs-600 letter-spacing-3 ff-serif">
-          {currentSelection.role}
-        </h3>
-        <h2 className="uppercase fs-700 letter-spacing-2 ff-serif">
-          {currentSelection.name}
-        </h2>
+        <h2 className="uppercase fs-600 ff-serif">{currentSelection.role}</h2>
+        <p className="uppercase fs-700 ff-serif">{currentSelection.name}</p>
         <p className="text-accent">{currentSelection.bio}</p>
       </article>
     </main>

@@ -588,6 +588,8 @@ select {
   margin-inline: auto;
 }
 
+/** DESTINATIONS **/
+
 .grid-container.destination {
   grid-template-areas:
     "title"
@@ -625,6 +627,40 @@ select {
 
 .destination-meta p {
   font-size: 1.75rem;
+}
+
+/** CREW **/
+.grid-container.crew {
+  grid-template-areas:
+    "title"
+    "image"
+    "dots"
+    "crew-info";
+
+  --flow-space: 2rem;
+  align-items: start;
+}
+
+.grid-container.crew img {
+  grid-area: image;
+  max-width: 60%;
+  border-bottom: 1px solid hsl(var(--clr-white) / 0.15);
+}
+
+.grid-container.crew .dot-indicators {
+  grid-area: dots;
+}
+
+.grid-container.crew .crew-info {
+  grid-area: crew-info;
+}
+
+.grid-container.crew h2 {
+  color: hsl(var(--clr-white) / 0.5);
+}
+
+.grid-container.crew p:last-child {
+  margin-block: 2rem;
 }
 
 /** BIGGER THAN MOBILE **/
