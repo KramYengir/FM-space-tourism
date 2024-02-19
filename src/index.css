@@ -529,12 +529,12 @@ select {
     padding: 0.5em;
     border: 0;
     border-radius: 50%;
-    background-color: hsl(var(--clr-white), 0.25);
+    background-color: hsl(var(--clr-white) / 0.25);
   }
 
   & *:hover,
   & *:focus {
-    background-color: hsl(var(--clr-white), 0.5);
+    background-color: hsl(var(--clr-white) / 0.5);
   }
 
   & *.active,

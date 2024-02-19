@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Destination.css";
-import data from "./destinations";
+import data from "./destinationData";
 
 const Destination = () => {
   const [currentSelection, setCurrentSelection] = useState(data[0]);
