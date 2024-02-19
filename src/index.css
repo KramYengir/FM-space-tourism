@@ -679,6 +679,15 @@ select {
     flex-direction: row;
     justify-content: space-evenly;
   }
+
+  .grid-container.crew {
+    padding-bottom: 0;
+  }
+
+  .grid-container.crew img {
+    border-bottom: 0;
+    align-self: end;
+  }
 }
 
 /** TABLETS **/
@@ -692,6 +701,10 @@ select {
 
     --flow-space: 2rem;
     align-items: start;
+  }
+
+  .grid-container.crew .crew-info {
+    align-self: start;
   }
 }
 /**  DESKTOPS  **/
@@ -759,8 +772,6 @@ select {
     justify-content: start;
     align-content: stretch;
     --container-gap: min(6rem, 5vw);
-
-    padding-bottom: 0;
   }
 
   .grid-container.crew .numbered-title {
@@ -775,8 +786,6 @@ select {
 
   .grid-container.crew img {
     max-width: 90%;
-    border-bottom: 0;
-    align-self: end;
   }
 
   .grid-container.crew .dot-indicators {
