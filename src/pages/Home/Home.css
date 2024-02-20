@@ -1,0 +1,18 @@
+.grid-container.home h1 {
+  margin-inline: auto;
+}
+
+@media (min-width: 60rem) {
+  .home.grid-container {
+    align-items: end;
+    padding-bottom: max(6rem, 20vh);
+  }
+
+  .grid-container.home > *:first-child {
+    grid-column: 2;
+  }
+
+  .grid-container.home > *:last-child {
+    grid-column: 3;
+  }
+}

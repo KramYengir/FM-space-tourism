@@ -1,0 +1,103 @@
+.grid-container.crew {
+  grid-template-areas:
+    "title"
+    "image"
+    "dots"
+    "crew-info";
+
+  --flow-space: 2rem;
+  align-items: start;
+}
+
+.grid-container.crew .numbered-title {
+  grid-area: title;
+}
+
+.grid-container.crew picture {
+  grid-area: image;
+  max-width: 60%;
+  border-bottom: 1px solid hsl(var(--clr-white) / 0.15);
+}
+
+.grid-container.crew .dot-indicators {
+  grid-area: dots;
+}
+
+.grid-container.crew .crew-info {
+  grid-area: crew-info;
+}
+
+.grid-container.crew h2 {
+  color: hsl(var(--clr-white) / 0.5);
+}
+
+/** BIGGER THAN MOBILE **/
+@media (min-width: 40rem) {
+  .grid-container.crew .numbered-title {
+    justify-self: start;
+    margin-top: calc(2rem + 1vw);
+  }
+
+  .grid-container.crew {
+    padding-bottom: 0;
+  }
+
+  .grid-container.crew picture {
+    border-bottom: 0;
+    align-self: end;
+  }
+}
+
+/** TABLETS **/
+@media (min-width: 40rem) and (max-width: 59.999rem) {
+  /** CREW **/
+  .grid-container.crew {
+    grid-template-areas:
+      "title"
+      "crew-info"
+      "dots"
+      "image";
+
+    --flow-space: 2rem;
+    align-items: start;
+  }
+
+  .grid-container.crew .crew-info {
+    align-self: start;
+  }
+}
+
+/**  DESKTOPS  **/
+@media (min-width: 60rem) {
+  .grid-container.crew {
+    grid-template-columns: minmax(2rem, 0.5fr) repeat(2, minmax(0, 35rem)) minmax(
+        2rem,
+        0.5fr
+      );
+    grid-template-areas:
+      ". title image ."
+      ". crew-info image ."
+      ". dots image .";
+
+    justify-content: start;
+    align-content: stretch;
+    --container-gap: min(6rem, 5vw);
+  }
+
+  .grid-container.crew .numbered-title {
+    align-self: start;
+  }
+
+  .grid-container.crew .crew-info {
+    margin-right: auto;
+    align-self: center;
+  }
+
+  .grid-container.crew picture {
+    max-width: 90%;
+  }
+
+  .grid-container.crew .dot-indicators {
+    justify-self: left;
+  }
+}

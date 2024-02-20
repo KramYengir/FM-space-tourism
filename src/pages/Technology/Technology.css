@@ -1,0 +1,110 @@
+/** TECHNOLOGY **/
+.grid-container.technology {
+  grid-template-areas:
+    "title"
+    "image"
+    "dots-and-info";
+
+  align-items: start;
+  padding-inline: 0;
+}
+
+.grid-container.technology .numbered-title {
+  grid-area: title;
+}
+
+/* hide portrait image on small screens */
+.grid-container.technology img.portrait {
+  display: none;
+}
+
+.grid-container.technology img {
+  grid-area: image;
+  padding-inline: 0;
+}
+
+.grid-container.technology .dots-and-info {
+  grid-area: dots-and-info;
+  flex-direction: column;
+}
+
+.grid-container.technology .technology-info {
+  padding-inline: 1rem;
+}
+
+/** BIGGER THAN MOBILE **/
+@media (min-width: 40rem) {
+  .grid-container.technology .numbered-title {
+    justify-self: start;
+    margin-top: calc(2rem + 1vw);
+    padding-left: 1em;
+  }
+}
+
+/** TABLETS **/
+@media (min-width: 40rem) and (max-width: 59.999rem) {
+  .grid-container.technology img {
+    width: 100%;
+  }
+
+  .grid-container.technology .technology-info p {
+    max-width: 70%;
+    margin-inline: auto;
+  }
+}
+
+/**  DESKTOPS  **/
+@media (min-width: 60rem) {
+  .grid-container.technology {
+    column-gap: var(--container-gap, 1rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        2rem,
+        1fr
+      );
+
+    grid-template-areas:
+      ". title . ."
+      ". dots-and-info image image";
+
+    align-items: start;
+    padding-inline: 0;
+  }
+
+  /* hide landscape image on large screens */
+  .grid-container.technology img.landscape {
+    display: none;
+  }
+  .grid-container.technology img.portrait {
+    display: block;
+    grid-area: image;
+    justify-self: end;
+  }
+
+  .grid-container.technology .numbered-title {
+    grid-area: title;
+    padding-left: 0;
+  }
+
+  .grid-container.technology .dots-and-info {
+    grid-area: dots-and-info;
+    align-items: start;
+    gap: max(2rem, 3vw);
+
+    flex-direction: row;
+
+    margin-top: 8rem;
+  }
+
+  .grid-container.technology .dots-and-info .technology-info {
+    margin-top: 0;
+  }
+
+  .grid-container.technology .numbered-indicators {
+    flex-direction: column;
+    max-width: fit-content;
+  }
+
+  .grid-container.technology .technology-info p {
+    max-width: 100%;
+  }
+}
