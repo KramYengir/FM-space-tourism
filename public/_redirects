@@ -1,0 +1,13 @@
+# Redirects for React Router in Netlify
+
+# Redirect /destination/* to /destination (preserve path)
+/destination/*  /destination  200
+
+# Redirect /crew/* to /crew (preserve path)
+/crew/*  /crew  200
+
+# Redirect /technology/* to /technology (preserve path)
+/technology/*  /technology  200
+
+# If none of the above rules match, redirect to the root
+/*  /  200
