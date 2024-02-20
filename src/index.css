@@ -585,10 +585,6 @@ select {
   text-align: center;
 }
 
-/* .grid-container * {
-  max-width: 60ch;
-} */
-
 .grid-container.home h1 {
   margin-inline: auto;
 }
@@ -673,8 +669,7 @@ select {
   grid-template-areas:
     "title"
     "image"
-    "dots"
-    "technology-info";
+    "dots-and-info";
 
   align-items: start;
   padding-inline: 0;
@@ -684,17 +679,22 @@ select {
   grid-area: title;
 }
 
+/* hide portrait image on small screens */
+.grid-container img.portrait {
+  display: none;
+}
+
 .grid-container.technology img {
   grid-area: image;
   padding-inline: 0;
 }
 
-.grid-container.technology .numbered-indicators {
-  grid-area: dots;
+.grid-container.technology .dots-and-info {
+  grid-area: dots-and-info;
+  flex-direction: column;
 }
 
 .grid-container.technology .technology-info {
-  grid-area: technology-info;
   padding-inline: 1rem;
 }
 
@@ -755,6 +755,7 @@ select {
     margin-inline: auto;
   }
 }
+
 /**  DESKTOPS  **/
 @media (min-width: 60rem) {
   .grid-container {
@@ -837,5 +838,55 @@ select {
 
   .grid-container.crew .dot-indicators {
     justify-self: left;
+  }
+
+  /** TECHNOLOGY **/
+  .grid-container.technology {
+    column-gap: var(--container-gap, 1rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        2rem,
+        1fr
+      );
+    grid-template-areas:
+      ". title . ."
+      ". dots-and-info image image";
+
+    align-items: start;
+    padding-inline: 0;
+  }
+
+  /* hide landscape image on large screens */
+  .grid-container img.landscape {
+    display: none;
+  }
+  .grid-container img.portrait {
+    display: initial;
+    grid-area: image;
+    justify-self: end;
+  }
+
+  .grid-container.technology .numbered-title {
+    grid-area: title;
+    padding-left: 0;
+  }
+
+  .grid-container.technology .dots-and-info {
+    grid-area: dots-and-info;
+    align-items: start;
+    gap: max(2rem, 3vw);
+    margin-top: 8rem;
+  }
+
+  .grid-container.technology .dots-and-info .technology-info {
+    margin-top: 0;
+  }
+
+  .grid-container.technology .numbered-indicators {
+    flex-direction: column;
+    max-width: fit-content;
+  }
+
+  .grid-container.technology .technology-info p {
+    max-width: 100%;
   }
 }

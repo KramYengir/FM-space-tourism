@@ -63,31 +63,42 @@ const Technology = () => {
       </h1>
 
       <img
+        className="landscape"
         src={currentSelection.images.landscape}
         alt={currentSelection.name}
       />
+      <img
+        className="portrait"
+        src={currentSelection.images.portrait}
+        alt={currentSelection.name}
+      />
 
-      <div className="numbered-indicators flex " style={{ "--gap": "2rem" }}>
-        {data.map((entry, index) => (
-          <button
-            key={index}
-            aria-selected={index === currentIndex}
-            className="text-accent bg-dark ff-serif fs-500"
-            onClick={(e) => handleLinkClick(e, index)}
-          >
-            {index + 1}
-          </button>
-        ))}
+      <div
+        className="dots-and-info flex flow"
+        style={{ "--flow-space": "2rem" }}
+      >
+        <div className="numbered-indicators flex " style={{ "--gap": "2rem" }}>
+          {data.map((entry, index) => (
+            <button
+              key={index}
+              aria-selected={index === currentIndex}
+              className="text-accent bg-dark ff-serif fs-500"
+              onClick={(e) => handleLinkClick(e, index)}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+        <article className="technology-info flow">
+          <header className="flow flow--space-small">
+            <h2 className="uppercase fs-400 text-accent ff-sans-cond letter-spacing-3">
+              the terminology...
+            </h2>
+            <p className="uppercase fs-700 ff-serif">{currentSelection.name}</p>
+          </header>
+          <p className="text-accent">{currentSelection.description}</p>
+        </article>
       </div>
-      <article className="technology-info flow">
-        <header className="flow flow--space-small">
-          <h2 className="uppercase fs-400 text-accent ff-sans-cond letter-spacing-3">
-            the terminology...
-          </h2>
-          <p className="uppercase fs-700 ff-serif">{currentSelection.name}</p>
-        </header>
-        <p className="text-accent">{currentSelection.description}</p>
-      </article>
     </main>
   );
 };
