@@ -667,6 +667,35 @@ select {
   color: hsl(var(--clr-white) / 0.5);
 }
 
+/** TECHNOLOGY **/
+.grid-container.technology {
+  grid-template-areas:
+    "title"
+    "image"
+    "dots"
+    "technology-info";
+
+  align-items: start;
+  padding-inline: 0;
+}
+
+.grid-container.technology .numbered-title {
+  grid-area: title;
+}
+
+.grid-container.technology img {
+  grid-area: image;
+  padding-inline: 0;
+}
+
+.grid-container.technology .numbered-indicators {
+  grid-area: dots;
+}
+.grid-container.technology .technology-info {
+  grid-area: technology-info;
+  padding-inline: 1rem;
+}
+
 /** BIGGER THAN MOBILE **/
 @media (min-width: 40rem) {
   .grid-container.destination > .numbered-title,

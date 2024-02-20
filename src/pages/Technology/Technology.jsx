@@ -54,7 +54,7 @@ const Technology = () => {
 
   return (
     <main
-      className="grid-container technology"
+      className="grid-container technology flow"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
@@ -81,7 +81,9 @@ const Technology = () => {
       </div>
       <article className="technology-info flow">
         <header className="flow flow--space-small">
-          <h2 className="uppercase fs-600 ff-serif">the terminology...</h2>
+          <h2 className="uppercase fs-400 text-accent ff-sans-cond letter-spacing-3">
+            the terminology...
+          </h2>
           <p className="uppercase fs-700 ff-serif">{currentSelection.name}</p>
         </header>
         <p className="text-accent">{currentSelection.description}</p>
