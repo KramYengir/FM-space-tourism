@@ -36,6 +36,7 @@ const Crew = () => {
   const handleTouchEnd = (event) => {
     const touchEndX = event.changedTouches[0].clientX;
     const deltaX = touchEndX - touchStartX;
+
     if (deltaX > 0 && currentIndex > 0) {
       // Swipe right
       setCurrentIndex((prevIndex) => prevIndex - 1);

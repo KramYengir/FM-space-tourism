@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Technology.css";
 import data from "./technologyData";
 
@@ -36,6 +36,7 @@ const Technology = () => {
   const handleTouchEnd = (event) => {
     const touchEndX = event.changedTouches[0].clientX;
     const deltaX = touchEndX - touchStartX;
+
     if (deltaX > 0 && currentIndex > 0) {
       // Swipe right
       setCurrentSelection(data[currentIndex - 1]);

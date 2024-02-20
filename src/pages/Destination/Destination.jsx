@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Destination.css";
 import data from "./destinationData";
 
 const Destination = () => {
   const [currentSelection, setCurrentSelection] = useState(data[0]);
+  const [touchStartX, setTouchStartX] = useState(0);
 
   useEffect(() => {
     // Set aria-selected to true for the first link when component mounts
@@ -31,8 +32,41 @@ const Destination = () => {
     setCurrentSelection(data[index]);
   };
 
+  // Swiping functionality
+
+  const handleTouchStart = (event) => {
+    setTouchStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (event) => {
+    const touchEndX = event.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+
+    // Determine if swiping left or right
+    if (deltaX > 0) {
+      // Swipe right
+      const newIndex = Math.max(
+        0,
+        data.findIndex((item) => item === currentSelection) - 1
+      );
+      setCurrentSelection(data[newIndex]);
+    } else if (deltaX < 0) {
+      // Swipe left
+      const newIndex = Math.min(
+        data.length - 1,
+        data.findIndex((item) => item === currentSelection) + 1
+      );
+      setCurrentSelection(data[newIndex]);
+    }
+  };
+
   return (
-    <main id="main" className="grid-container destination flow">
+    <main
+      id="main"
+      className="grid-container destination flow"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <h1 className="numbered-title">
         <span aria-hidden={true}>01</span> pick your destination
       </h1>
@@ -46,7 +80,7 @@ const Destination = () => {
         {data.map((spaceBody, index) => (
           <li key={index}>
             <button
-              aria-selected={false}
+              aria-selected={currentSelection === spaceBody}
               className="uppercase text-accent bg-dark letter-spacing-2"
               onClick={(event) => handleLinkClick(event, index)}
             >
