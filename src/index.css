@@ -847,6 +847,7 @@ select {
         2rem,
         1fr
       );
+
     grid-template-areas:
       ". title . ."
       ". dots-and-info image image";
@@ -874,6 +875,9 @@ select {
     grid-area: dots-and-info;
     align-items: start;
     gap: max(2rem, 3vw);
+
+    flex-direction: row;
+
     margin-top: 8rem;
   }
 
