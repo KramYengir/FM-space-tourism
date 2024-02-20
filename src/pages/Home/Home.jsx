@@ -18,7 +18,7 @@ const Home = () => {
       <div>
         <a
           href="#"
-          className="large-button uppercase ff-serif text-dark bg-white"
+          className="large-button uppercase fs-600 ff-serif text-dark bg-white"
         >
           Explore
         </a>

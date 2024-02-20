@@ -355,7 +355,7 @@ select {
   padding: 0 2em;
   border-radius: 50%;
 
-  font-size: 2rem;
+  /* font-size: 2rem; */
   text-decoration: none;
 }
 
@@ -584,9 +584,9 @@ select {
   text-align: center;
 }
 
-.grid-container * {
+/* .grid-container * {
   max-width: 60ch;
-}
+} */
 
 .grid-container.home h1 {
   margin-inline: auto;
