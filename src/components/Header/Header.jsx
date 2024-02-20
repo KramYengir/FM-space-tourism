@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logoIMG from "../../assets/shared/logo.svg";
 import hamburgerIMG from "../../assets/shared/icon-hamburger.svg";
 import hamburgerCloseIMG from "../../assets/shared/icon-close.svg";
@@ -7,18 +7,20 @@ import "./Header.css";
 
 const Header = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const path = useLocation().pathname;
+  console.log("path; ", path);
 
   const handleClick = () => {
     setIsExpanded(false);
   };
 
-  const toggleAriaSelected = (event) => {
-    const links = document.querySelectorAll(".primary-navigation a");
-    links.forEach((link) => {
-      link.setAttribute("aria-selected", "false");
-    });
-    event.currentTarget.setAttribute("aria-selected", "true");
-  };
+  // const toggleAriaSelected = (event) => {
+  //   const links = document.querySelectorAll(".primary-navigation a");
+  //   links.forEach((link) => {
+  //     link.setAttribute("aria-selected", "false");
+  //   });
+  //   event.currentTarget.setAttribute("aria-selected", "true");
+  // };
 
   return (
     <header className="primary-header flex">
@@ -46,12 +48,11 @@ const Header = () => {
         >
           <li>
             <Link
-              aria-selected={false}
+              aria-selected={path === "/"}
               to="/"
               className="ff-sans-cond text-white uppercase letter-spacing-2"
-              onClick={(event) => {
+              onClick={() => {
                 handleClick();
-                toggleAriaSelected(event);
               }}
             >
               <span aria-hidden={true}>00</span> Home
@@ -59,12 +60,11 @@ const Header = () => {
           </li>
           <li>
             <Link
-              aria-selected={false}
+              aria-selected={path === "/destination"}
               to="/destination"
               className="ff-sans-cond text-white uppercase letter-spacing-2"
-              onClick={(event) => {
+              onClick={() => {
                 handleClick();
-                toggleAriaSelected(event);
               }}
             >
               <span aria-hidden={true}>01</span> Destination
@@ -72,12 +72,11 @@ const Header = () => {
           </li>
           <li>
             <Link
-              aria-selected={false}
+              aria-selected={path === "/crew"}
               to="/crew"
               className="ff-sans-cond text-white uppercase letter-spacing-2"
-              onClick={(event) => {
+              onClick={() => {
                 handleClick();
-                toggleAriaSelected(event);
               }}
             >
               <span aria-hidden={true}>02</span> Crew
@@ -85,12 +84,11 @@ const Header = () => {
           </li>
           <li>
             <Link
-              aria-selected={false}
+              aria-selected={path === "/technology"}
               to="/technology"
               className="ff-sans-cond text-white uppercase letter-spacing-2"
-              onClick={(event) => {
+              onClick={() => {
                 handleClick();
-                toggleAriaSelected(event);
               }}
             >
               <span aria-hidden={true}>03</span> Technology
